@@ -11,6 +11,8 @@ import WalletPage from './pages/WalletPage';
 import CarbonCredits from './pages/CarbonCredits';
 import GridOperator from './pages/GridOperator';
 import AdminPanel from './pages/AdminPanel';
+import Community from './pages/Community';
+import Analytics from './pages/Analytics';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
@@ -30,6 +32,8 @@ function AppRoutes() {
         <Route path="trades" element={<TradeHistory />} />
         <Route path="wallet" element={<WalletPage />} />
         <Route path="carbon-credits" element={<CarbonCredits />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="community" element={<Community />} />
         <Route path="grid" element={<GridOperator />} />
         <Route path="admin" element={<AdminPanel />} />
       </Route>
