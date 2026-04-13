@@ -10,8 +10,11 @@ const NAV_ITEMS = [
   { path: '/wallet', icon: '💰', label: 'Wallet' },
   { section: 'Green Energy' },
   { path: '/carbon-credits', icon: '🌱', label: 'Carbon Credits' },
+  { path: '/analytics', icon: '📊', label: 'Analytics' },
+  { section: 'Community' },
+  { path: '/community', icon: '🏘️', label: 'Microgrids' },
   { section: 'Operations' },
-  { path: '/grid', icon: '🔌', label: 'Grid Operations' },
+  { path: '/grid', icon: '🔌', label: 'Grid Operations', roles: ['GRID_OPERATOR', 'ADMIN'] },
   { path: '/admin', icon: '⚙️', label: 'Admin Panel', roles: ['ADMIN'] },
 ];
 

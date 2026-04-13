@@ -57,4 +57,26 @@ export const api = {
     deactivateUser: (id: string) => request(`/admin/users/${id}/deactivate`, { method: 'PUT' }),
     activateUser: (id: string) => request(`/admin/users/${id}/activate`, { method: 'PUT' }),
   },
+  community: {
+    getAll: () => request('/community'),
+    getMy: () => request('/community/my'),
+    getById: (id: string) => request(`/community/${id}`),
+    getMembers: (id: string) => request(`/community/${id}/members`),
+    create: (body: any) => request('/community', { method: 'POST', body: JSON.stringify(body) }),
+    join: (id: string) => request(`/community/${id}/join`, { method: 'POST' }),
+    leave: (id: string) => request(`/community/${id}/leave`, { method: 'POST' }),
+  },
+  priceAlerts: {
+    getAll: () => request('/price-alerts'),
+    create: (body: any) => request('/price-alerts', { method: 'POST', body: JSON.stringify(body) }),
+    deactivate: (id: string) => request(`/price-alerts/${id}/deactivate`, { method: 'PUT' }),
+    delete: (id: string) => request(`/price-alerts/${id}`, { method: 'DELETE' }),
+  },
+  analytics: {
+    getPlatformStats: () => request('/analytics/platform'),
+    getUserAnalytics: () => request('/analytics/me'),
+    getEnergyTrends: (zoneId?: string, days?: number) => request(`/analytics/energy-trends?${zoneId ? `zoneId=${zoneId}&` : ''}days=${days || 7}`),
+    getPriceTrends: (zoneId: string, days?: number) => request(`/analytics/price-trends/${zoneId}?days=${days || 7}`),
+    getLeaderboard: (limit?: number) => request(`/analytics/leaderboard?limit=${limit || 10}`),
+  },
 };
