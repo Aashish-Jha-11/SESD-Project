@@ -31,6 +31,13 @@ import { EnergyController } from './controllers/EnergyController';
 import { GridZoneController } from './controllers/GridZoneController';
 import { NotificationController } from './controllers/NotificationController';
 import { AdminController } from './controllers/AdminController';
+import { CommunityController } from './controllers/CommunityController';
+import { PriceAlertController } from './controllers/PriceAlertController';
+import { AnalyticsController } from './controllers/AnalyticsController';
+
+import { CommunityService } from './services/CommunityService';
+import { PriceAlertService } from './services/PriceAlertService';
+import { AnalyticsService } from './services/AnalyticsService';
 
 import { seedDatabase } from './seed/seed';
 
@@ -67,6 +74,9 @@ async function bootstrap() {
   const orderService = new OrderService(matchingEngine, tradeService, notificationService);
   const energyService = new EnergyService();
   const auditLogService = new AuditLogService();
+  const communityService = new CommunityService();
+  const priceAlertService = new PriceAlertService(notificationService, pricingService);
+  const analyticsService = new AnalyticsService();
 
   const authController = new AuthController();
   const orderController = new OrderController(orderService);
@@ -76,6 +86,9 @@ async function bootstrap() {
   const gridZoneController = new GridZoneController(gridZoneService, pricingService);
   const notificationController = new NotificationController(notificationService);
   const adminController = new AdminController(auditLogService);
+  const communityController = new CommunityController(communityService);
+  const priceAlertController = new PriceAlertController(priceAlertService);
+  const analyticsController = new AnalyticsController(analyticsService);
 
   app.use('/api/auth', authController.router);
   app.use('/api/orders', authMiddleware, orderController.router);
@@ -85,6 +98,9 @@ async function bootstrap() {
   app.use('/api/zones', authMiddleware, gridZoneController.router);
   app.use('/api/notifications', authMiddleware, notificationController.router);
   app.use('/api/admin', authMiddleware, requireRole(UserRole.ADMIN), adminController.router);
+  app.use('/api/community', authMiddleware, communityController.router);
+  app.use('/api/price-alerts', authMiddleware, priceAlertController.router);
+  app.use('/api/analytics', authMiddleware, analyticsController.router);
 
   app.get('/api/health', (_, res) => res.json({ status: 'ok', timestamp: new Date() }));
 
