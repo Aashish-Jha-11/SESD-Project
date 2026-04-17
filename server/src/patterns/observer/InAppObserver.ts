@@ -21,8 +21,8 @@ export class InAppObserver implements INotificationObserver {
       const notification = repo.create({
         userId,
         type: notifType,
-        title: this.buildTitle(event),
-        message: JSON.stringify(event.data || {}),
+        title: event.title || this.buildTitle(event),
+        message: event.message || JSON.stringify(event.data || {}),
       });
       await repo.save(notification);
     }

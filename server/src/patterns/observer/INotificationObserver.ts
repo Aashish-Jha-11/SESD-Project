@@ -5,6 +5,8 @@ export interface TradeEvent {
   userId?: string;
   buyerId?: string;
   sellerId?: string;
+  title?: string;
+  message?: string;
   data?: Record<string, any>;
 }
 
