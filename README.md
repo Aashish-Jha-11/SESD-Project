@@ -1,4 +1,4 @@
-# ⚡ GreenGrid — P2P Energy Trading Platform
+# ⚡ GreenGrid v0.1 — P2P Energy Trading Platform
 
 > **This is not a project — it's a product.**  
 > GreenGrid is built with the mindset of a real-world, production-grade energy trading platform. Every architectural decision, design pattern, and module is crafted to be scalable, maintainable, and ready for deployment — not just to pass a milestone.
