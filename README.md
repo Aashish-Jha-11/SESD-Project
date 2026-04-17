@@ -3,6 +3,10 @@
 > **This is not a project — it's a product.**  
 > GreenGrid is built with the mindset of a real-world, production-grade energy trading platform. Every architectural decision, design pattern, and module is crafted to be scalable, maintainable, and ready for deployment — not just to pass a milestone.
 
+## Live URL
+
+- Dashboard: https://greengrid-orcin.vercel.app/
+
 ## Vision
 
 GreenGrid enables a **decentralized energy marketplace** where prosumers (producer-consumers) with solar panels, wind turbines, and battery storage can trade surplus renewable energy directly with nearby consumers — in real-time, with transparent pricing, escrow-secured transactions, and verifiable carbon credits.
